@@ -27,15 +27,6 @@ namespace Unibox.Core
                     ans.Data[i.Key] = i.Value;
             return ans;
         }
-        public Meta GetMetas(IEnumerable<string> words, IGetMeta provider) //using injection of components
-        {
-            Meta ans = new Meta();
-            foreach (string word in words) ans += provider.GetMeta(word);
-            return ans;
-        }
-    }
-    public interface IGetMeta
-    {
-        Meta GetMeta(string word);
+ 
     }
 }

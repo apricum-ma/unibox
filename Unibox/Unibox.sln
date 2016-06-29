@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unibox", "Unibox\Unibox.csproj", "{FE4F3FEB-2481-4C88-9FFC-EC8693B51540}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{E9896268-3348-4EB7-AE60-2F9AC44A2395}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlugIn_ChinaCRH", "PlugIn_ChinaCRH\PlugIn_ChinaCRH.csproj", "{30BA1344-4958-4577-B1E9-6E8459C5D3F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +19,15 @@ Global
 		{FE4F3FEB-2481-4C88-9FFC-EC8693B51540}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE4F3FEB-2481-4C88-9FFC-EC8693B51540}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE4F3FEB-2481-4C88-9FFC-EC8693B51540}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30BA1344-4958-4577-B1E9-6E8459C5D3F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30BA1344-4958-4577-B1E9-6E8459C5D3F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30BA1344-4958-4577-B1E9-6E8459C5D3F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30BA1344-4958-4577-B1E9-6E8459C5D3F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{30BA1344-4958-4577-B1E9-6E8459C5D3F1} = {E9896268-3348-4EB7-AE60-2F9AC44A2395}
 	EndGlobalSection
 EndGlobal
