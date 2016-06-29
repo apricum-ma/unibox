@@ -7,6 +7,10 @@ namespace Unibox
 {
     class BoxApp
     {
+        class PatternData
+        {
+
+        }
     }
     class SampleApp :BoxApp
     {

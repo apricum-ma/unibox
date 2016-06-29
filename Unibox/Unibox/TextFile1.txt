@@ -1,0 +1,172 @@
+﻿public void search(string str)
+{
+	var result = new List<Result>();
+	foreach(var plugin in plugins) //List<IPlugin> plugins
+	{
+		result+=plugin.query(str); //Async?
+	}
+	display(result)
+}
+
+
+interface IPlugin
+{
+	List<Result> query(string str){
+
+	}
+
+}
+
+
+
+/*
+Aim: train beijing jun18 shanghai 
+
+keywordlist: keyword(regex) -> fieldtype
+requestTable: (OPTIONAL, VerbTable)(book*,cancel,bomb) (SPECIFIER) train (REQUIRED)2 cities (from, to), 1 date (on), (OPTIONAL) seat type ...
+optional Feature: prepositions
+Once the requests fill the requestTable of a plugin, the plugin is invoked.
+
+Global requestTable keyword(regex) -> pluginName::fieldtype
+
+train beijing shanghai "IntelliSense"
+
+struct Result
+{
+	Picture picture;
+	string title;
+	string subtitle;
+	string mouseOverAction;
+
+}
+
+train beijing shanghai
+_______________________
+Complete with a date.
+01/01 Fastest: 5h40min RMB553
+01/02 Fastest xxxxxx
+
+
+train beijing shanghai jan01
+____________________________
+Gxx 00:00-00:01 5h40m 553
+xx
+
+
+train beijing shanghai jan01 G3 //like a URL
+_______________________________
+Second class RMBxx
+First Class xxx 
+
+train 
+____________________________
+What's bj?
+1 Beijing
+2 Beijing2
+3 Beijing3
+...
+//Double reload
+
+
+*/
+static class BoxMain
+{
+	class Result
+	{
+		Picture picture;
+		String title;
+		String subtitle;
+		
+	}
+	List<Result>
+	public void setQuery(Cat cat)
+	{
+
+	}
+}
+class CRHPlugin : IPlugin
+{
+
+	Dictionary wordCatDict;
+	/*
+		"beijing" -> city, PEK
+		"shanghai" -> city, SHA
+		"bj" -> city, PEK
+		/jan../ -> datetime,01/..
+		second -> class, "SEC" // according to API requirements
+	*/
+	//String -> keyWordCatElement
+	/*
+		INPUT: "beijing" "bj"
+		OUTPUT: pattern{"city":1} data {"city":["PEK"]}
+		ESSENTIAL: "beijing"->"city"
+	*/
+	public KeyWordCat GetKeywordCat(string keyWord){
+		Pair pair = wordCatDict[keyWord]
+		pair -> KeyWordCat
+		return KeyWordCat
+	}
+
+	//List<string> -> keyWordCat //PROVIDED BY INTERFACE
+	public KeyWordCat GetKeywordCat(List<string> strs){
+		var ans = new KeyWordCat();
+		foreach(var i in strs){
+			ans+=GetKeywordCat(i)
+		}
+		return ans;
+	}
+	//patterns[keyWordCat] -> Func<KeywordCat>
+	public Dictionary<KeywordCat,Func<KeywordCat>> patterns; //USER FILLED
+
+	Func<KeywordCat> f(KeywordCat keyWordCat)
+	{
+		...
+		...
+
+		BoxMain.setQuery(cat);
+		BoxMain.setPreResultList(); //FIRST
+		BoxMain.setResultList(); //SECOND, other thread, space cancelling
+	}
+
+	//dict[keywordCatType].invoke(keywordCatType);
+	//keywordCatType may include: pattern {"city":2,"datetime":1}, data {"city":["xxx","yyy"],"datetime":"20000101"}
+	//KeywordCat.equals(Object obj): if pattern matches then return true;
+
+	/*
+
+	[city,1] show destinations
+	[city,2] show available times, yupiaoshu
+	[city,2][datetime,1] show classes
+	[city,2][datetime,1][class,1] show options (e.g. insurance, ...)
+	[city,2][datetime,1][class,1] <FINAL> invoke API, show QR code
+
+
+	<del>from [city] to [city]</del> 
+	*/
+	/*
+		Requirements:
+		* Minimize loading of plugin, by extracting fingerprint
+		* Facilitate developer
+	*/
+	/*
+		Args -> Keywords(typed) -> Match Patterns -> Interact <-> FinalInvocation -> FillSummaryTemplate 
+	*/
+		// train beijing shanghai jan01 <300 [city,2][datetime,1][fare,1]
+		// train beijing jan01 []
+
+	//List<Pair<Integer,Set<String>>> keywordReceipt;
+	//2:[Beijing,Shanghai,Guangzhou,...],1:[jan..,feb..],0:[second,first]
+	// private Dictionary<string,> KeywordDict {get;}
+	// void ParamMapper(string[] str)
+	// {
+	// 	foreach (var param in str)
+	// 	LookUpParamDictionary()
+	// }
+		//bank transfer to xxxxx RMB xxxx.xx Escalated 
+}
+
+namespace UniBox.Resources
+{
+	public class Property{}
+	class City:Property	
+}
