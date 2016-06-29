@@ -16,11 +16,10 @@ namespace Unibox
             {
                 var ans = (Meta)lVal.MemberwiseClone();
                 foreach (var i in rVal.Pattern)
-                    ans.Pattern[i.Key]
-                        = ans.Pattern.ContainsKey(i.Key)
-                        ? ans.Pattern[i.Key]
-                        : 0
-                        + i.Value;
+                    if (ans.Pattern.ContainsKey(i.Key))
+                        ans.Pattern[i.Key] += i.Value;
+                    else
+                        ans.Pattern.Add(i.Key, i.Value);
                 foreach(var i in rVal.Data)
                 {
                     if (ans.Data.ContainsKey(i.Key))
@@ -38,9 +37,5 @@ namespace Unibox
             foreach (string word in words) ans += GetMeta(word);
             return ans;
         }
-    }
-    class SampleApp :BoxApp
-    {
-
     }
 }
